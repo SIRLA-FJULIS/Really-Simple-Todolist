@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}To Do List{% endblock title %}
+
+<!-- index.html -->
+
+{% block content %}
+	<form method="POST">
+        <h1 class='page-title mt-5' style="text-align: center;">To Do List</h1>
+        <div class="form-group col-xl-5 col-md-6" style="margin: 15px auto">
+            {{ form.hidden_tag() }}
+            {{ form.date.label }} 
+            {{ form.date(class="form-control") }}
+            {{ form.item.label }}
+            {{ form.item(class="form-control") }}
+        </div>
+        <div style="text-align: center;">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+
+    <div class="mt-5" style="text-align: center;">
+    	<div class="alert alert-warning" role="alert">
+		    <h3 style="font-family: 微軟正黑體;">
+		    	{% if date %}
+			        截止時間：{{ date }}
+			    {% else %}
+			    	請於上方表單中，輸入任務截止的日期 & 任務名稱~
+			    {% endif %}
+			</h3>
+			<h3 style="font-family: 微軟正黑體;">
+				{% if item %}
+			        任務名稱：{{ item }}
+			    {% endif %}
+			</h3>
+		</div>  
+	</div>
+{% endblock content %}

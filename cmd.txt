@@ -1,0 +1,19 @@
+set FLASK_APP=app.py
+
+flask shell
+>>> from app import db
+>>> db.drop_all()
+>>> db.create_all()
+
+flask run
+
+=========================================
+
+flask shell
+
+>>> from app import db
+>>> from app.models import TaskDate, TaskItem
+>>> TaskDate.query.all()
+[<ToDoList datetime.datetime(2019, 5, 25, 0, 0)>, <ToDoList datetime.datetime(2019, 5, 26, 0, 0)>, <ToDoList datetime.datetime(2019, 5, 27, 0, 0)>, <ToDoList datetime.datetime(2019, 5, 25, 0, 0)>]
+>>> TaskItem.query.all()
+[<ToDoList 'python »²¾É½Ò'>, <ToDoList 'meeting'>, <ToDoList 'sirla'>, <ToDoList 'study'>]
